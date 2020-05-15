@@ -31,11 +31,11 @@ pub fn log(txt string, lvl Level) { //NOTE: Consider making the Level optional, 
 				.critical { '\033[1;31m[CRITICAL] ' + txt + '\033[0m' }
 			}) }
 		else { println(match lvl {
-				.verbose { '\033[90m[VERBOSE] ' + txt + '\033[0m' }
-				.info { '[\033[34mINFO\033[0m] ' + txt + '\033[0m' }
-				.warning { '[\033[33mWARNING\033[0m] ' + txt + '\033[0m' }
-				.error { '[\033[31;4mERROR\033[0m] ' + txt + '\033[0m' }
-				.critical { '\033[1;31m[CRITICAL] ' + txt + '\033[0m' }
+				.verbose { '[VERBOSE] ' + txt }
+				.info { '[INFO] ' + txt}
+				.warning { '[WARNING] ' + txt}
+				.error { '[ERROR] ' + txt}
+				.critical { '[CRITICAL] ' + txt}
 			}) }
 	}
 }
