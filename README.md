@@ -12,7 +12,7 @@ Logging levels with colors, in a simple v module !
 
 Install:
 ```
-v install ifndev.flogs`
+v install ifndev.flogs
 ```
 
 Import:
