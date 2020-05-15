@@ -6,6 +6,20 @@ Logging levels with colors, in a simple v module !
 ## Preview:
 ![Preview of the different colored outputs](https://raw.githubusercontent.com/ifndev/v-fancy-logs/master/readme-assets/demo.png)
 
+## Installation and Import
+
+### From vpm (*recommended*):
+`v install ifndev.flogs`
+```v
+import ifndev.flogs
+```
+
+### From github:
+`git clone https://github.com/ifndev/v-fancy-logs/ flogs`
+```v
+import flogs
+```
+
 ## Usage
 
 ```v
@@ -25,7 +39,10 @@ Here is the code for the preview higher up:
 
 ```v
 module main
-import flogs
+import ifndev.flogs 
+
+// If you downloaded the module via github, use this instead:
+// import flogs
 
 fn main() {
 	flogs.log("ignore me, unless you don't want to.", .verbose)
