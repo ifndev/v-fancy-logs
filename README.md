@@ -1,7 +1,7 @@
 # V fancy logs
 Logging levels with colors, in a simple v module !
 
-:warning: This is still an early wotk in progress !
+:warning: This is still an early work in progress !
 
 ## Preview:
 ![Preview of the different colored outputs](https://raw.githubusercontent.com/ifndev/v-fancy-logs/master/readme-assets/demo.png)
