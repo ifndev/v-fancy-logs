@@ -1,3 +1,10 @@
+/*
+USAGE:
+
+log(<String>, < .verbose | .info | .warning | .error | .critical >)
+
+*/
+
 module flogs
 //import os
 
@@ -14,7 +21,7 @@ pub enum Level {
 	critical
 }
 
-pub fn log(lvl Level, txt string) {
+pub fn log(txt string, lvl Level) { //NOTE: Consider making the Level optional, defaulting to verbose or info
 	match get_color_support() {
 		true { println(match lvl {
 				.verbose { '\033[90m[VERBOSE] ' + txt + '\033[0m' }
