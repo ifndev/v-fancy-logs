@@ -1,8 +1,6 @@
 # V fancy logs
 Logging levels with colors, in a simple v module !
 
-:warning: This is still a work in progress !
-
 ## Preview:
 ![Preview gif](https://raw.githubusercontent.com/ifndev/v-fancy-logs/master/.readme-assets/demo.gif)
 
