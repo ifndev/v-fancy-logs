@@ -6,9 +6,21 @@ Logging levels with colors, in a simple v module !
 
 ## Installation and Import
 
-### From vpm (*recommended*):
+### Using vpkg:
 
-Install/Update (from anywhere):
+```
+vpkg get flogs
+```
+
+Import:
+```v
+import flogs
+```
+
+
+### Using vpm:
+
+Install/Update:
 ```
 v install ifndev.flogs
 ```
@@ -18,7 +30,7 @@ Import:
 import ifndev.flogs
 ```
 
-### From github:
+### Using github (*least recommended*):
 
 Install (from your project folder):
 ```
