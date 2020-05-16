@@ -46,7 +46,9 @@ Logger.log(<String>, <Level>) // (See examples)
 - error
 - critical
 
-### Example
+### Examples
+
+#### basic
 
 ```v
 module main
@@ -68,5 +70,45 @@ fn main() {
 	l.log("that's probably important" , .warning)
 	l.log("i don't feel so good", .error)
 	l.log("really bad" , .critical)
+}
+```
+
+#### --log-level option
+
+```v
+module main
+
+import ifndev.flogs
+import os
+
+fn main() {
+	// You can't declare your logger in const, or it won't be able to capture args
+	l := flogs.Logger{
+		min_logging_level: get_level_from_args() 
+	}
+
+	l.log("ignore me, unless you don't want to.", .verbose)
+	l.log('you might want to know this', .info)
+	l.log("that's probably important", .warning)
+	l.log("i don't feel so good", .error)
+	l.log('really bad', .critical)
+}
+
+fn get_level_from_args() flogs.Level {
+
+	if os.args.len == 3 && os.args[1] == "--log-level" {
+		match os.args[2] {
+			"verbose" {return .verbose}
+			"info" {return .info}
+			"warning" {return .warning}
+			"error" {return .error}
+			"critical" {return .critical}
+
+			else {return .verbose} //used by default if input is invalid
+		}
+	}
+	else {
+		return .verbose //used by default if no input
+	}
 }
 ```
