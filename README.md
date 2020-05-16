@@ -4,7 +4,7 @@ Logging levels with colors, in a simple v module !
 :warning: This is still an early work in progress !
 
 ## Preview:
-![Preview of the different colored outputs](https://raw.githubusercontent.com/ifndev/v-fancy-logs/master/readme-assets/demo.png)
+![Preview gif](https://raw.githubusercontent.com/ifndev/v-fancy-logs/master/readme-assets/demo.gif)
 
 ## Installation and Import
 
@@ -47,7 +47,6 @@ Logger.log(<String>, <Level>) // (See examples)
 - critical
 
 ### Example
-Here is the code for the preview higher up:
 
 ```v
 module main
@@ -71,3 +70,6 @@ fn main() {
 	l.log("really bad" , .critical)
 }
 ```
+#### Output:
+
+![example demo](https://raw.githubusercontent.com/ifndev/v-fancy-logs/master/readme-assets/demo.png)
