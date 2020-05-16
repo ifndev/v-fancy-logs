@@ -6,7 +6,7 @@ log(<String>, < .verbose | .info | .warning | .error | .critical >)
 */
 
 module flogs
-//import os
+import term
 
 fn init() int {
 	//TODO: Check color support only once if possible
@@ -22,7 +22,7 @@ pub enum Level {
 }
 
 pub fn log(txt string, lvl Level) { //NOTE: Consider making the Level optional, defaulting to verbose or info
-	match get_color_support() {
+	match term.can_show_color_on_stdout() {  // Dirty !
 		true { println(match lvl {
 				.verbose { '\033[90m[VERBOSE] ' + txt + '\033[0m' }
 				.info { '[\033[34mINFO\033[0m] ' + txt + '\033[0m' }
@@ -38,10 +38,4 @@ pub fn log(txt string, lvl Level) { //NOTE: Consider making the Level optional, 
 				.critical { '[CRITICAL] ' + txt}
 			}) }
 	}
-}
-
-fn get_color_support() bool {
-	//term := os.getenv('TERM')
-	//TODO: Implement color support checking
-	return true
 }
