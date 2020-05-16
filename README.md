@@ -35,7 +35,7 @@ import flogs
 ## Usage
 
 ```v
-log(<String>, <Level>) // (See examples)
+Logger.log(<String>, <Level>) // (See examples)
 ````
 
 ### Levels
@@ -51,16 +51,23 @@ Here is the code for the preview higher up:
 
 ```v
 module main
-import ifndev.flogs 
-
-// If you downloaded the module via github, use this instead:
+import ifndev.flogs
+// If downloaded from github, use:
 // import flogs
 
+const (
+	l = flogs.Logger {
+		min_logging_level: .verbose // Minimum level to be printed to console
+		// For example, if you choose .warning, only warnings, errors and critical errors will be displayed
+	}
+)
+
 fn main() {
-	flogs.log("ignore me, unless you don't want to.", .verbose)
-	flogs.log("you might want to know this", .info)
-	flogs.log("that's probably important" , .warning)
-	flogs.log("i don't feel so good", .error)
-	flogs.log("really bad" , .critical)
+
+	l.log("ignore me, unless you don't want to.", .verbose)
+	l.log("you might want to know this", .info)
+	l.log("that's probably important" , .warning)
+	l.log("i don't feel so good", .error)
+	l.log("really bad" , .critical)
 }
 ```
