@@ -1,0 +1,8 @@
+
+{
+    "name": "flogs",
+    "version": "0.1.0",
+    "author": ["ifndev <github@ifndev.software>"],
+    "repo": "https://github.com/ifndev/v-fancy-logs",
+    "dependencies": []
+  }
