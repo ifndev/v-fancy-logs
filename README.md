@@ -10,7 +10,7 @@ Logging levels with colors, in a simple v module !
 
 ### From vpm (*recommended*):
 
-Install:
+Install (from anywhere):
 ```
 v install ifndev.flogs
 ```
@@ -22,7 +22,7 @@ import ifndev.flogs
 
 ### From github:
 
-Install:
+Install (from your project folder):
 ```
 git clone https://github.com/ifndev/v-fancy-logs/ flogs
 ```
