@@ -70,6 +70,3 @@ fn main() {
 	l.log("really bad" , .critical)
 }
 ```
-#### Output:
-
-![example demo](https://raw.githubusercontent.com/ifndev/v-fancy-logs/master/readme-assets/demo.png)
