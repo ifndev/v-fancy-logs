@@ -8,10 +8,9 @@ log(<String>, < .verbose | .info | .warning | .error | .critical >)
 module flogs
 import term
 
-fn init() int {
-	//TODO: Check color support only once if possible
-    return 1
-}
+const (
+	colors_supported = term.can_show_color_on_stdout()
+)
 
 pub enum Level {
 	verbose
@@ -22,7 +21,7 @@ pub enum Level {
 }
 
 pub fn log(txt string, lvl Level) { //NOTE: Consider making the Level optional, defaulting to verbose or info
-	match term.can_show_color_on_stdout() {  // Dirty !
+	match colors_supported {  // Dirty !
 		true { println(match lvl {
 				.verbose { '\033[90m[VERBOSE] ' + txt + '\033[0m' }
 				.info { '[\033[34mINFO\033[0m] ' + txt + '\033[0m' }
