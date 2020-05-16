@@ -1,7 +1,7 @@
 # V fancy logs
 Logging levels with colors, in a simple v module !
 
-:warning: This is still an early work in progress !
+:warning: This is still a work in progress !
 
 ## Preview:
 ![Preview gif](https://raw.githubusercontent.com/ifndev/v-fancy-logs/master/readme-assets/demo.gif)
@@ -10,7 +10,7 @@ Logging levels with colors, in a simple v module !
 
 ### From vpm (*recommended*):
 
-Install:
+Install/Update (from anywhere):
 ```
 v install ifndev.flogs
 ```
@@ -22,9 +22,15 @@ import ifndev.flogs
 
 ### From github:
 
-Install:
+Install (from your project folder):
 ```
 git clone https://github.com/ifndev/v-fancy-logs/ flogs
+```
+
+Update (from your project folder):
+```
+cd flogs
+git pull
 ```
 
 Import:
@@ -46,7 +52,9 @@ Logger.log(<String>, <Level>) // (See examples)
 - error
 - critical
 
-### Example
+### Examples
+
+#### basic
 
 ```v
 module main
@@ -68,5 +76,45 @@ fn main() {
 	l.log("that's probably important" , .warning)
 	l.log("i don't feel so good", .error)
 	l.log("really bad" , .critical)
+}
+```
+
+#### --log-level option
+
+```v
+module main
+
+import ifndev.flogs
+import os
+
+fn main() {
+	// You can't declare your logger in const, or it won't be able to capture args
+	l := flogs.Logger{
+		min_logging_level: get_level_from_args() 
+	}
+
+	l.log("ignore me, unless you don't want to.", .verbose)
+	l.log('you might want to know this', .info)
+	l.log("that's probably important", .warning)
+	l.log("i don't feel so good", .error)
+	l.log('really bad', .critical)
+}
+
+fn get_level_from_args() flogs.Level {
+
+	if os.args.len == 3 && os.args[1] == "--log-level" {
+		match os.args[2] {
+			"verbose" {return .verbose}
+			"info" {return .info}
+			"warning" {return .warning}
+			"error" {return .error}
+			"critical" {return .critical}
+
+			else {return .verbose} //used by default if input is invalid
+		}
+	}
+	else {
+		return .verbose //used by default if no input
+	}
 }
 ```
