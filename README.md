@@ -1,7 +1,7 @@
 # V fancy logs
 Logging levels with colors, in a simple v module !
 
-:warning: This is still an early wotk in progress !
+:warning: This is still an early work in progress !
 
 ## Preview:
 ![Preview of the different colored outputs](https://raw.githubusercontent.com/ifndev/v-fancy-logs/master/readme-assets/demo.png)
@@ -9,13 +9,25 @@ Logging levels with colors, in a simple v module !
 ## Installation and Import
 
 ### From vpm (*recommended*):
-`v install ifndev.flogs`
+
+Install:
+```
+v install ifndev.flogs
+```
+
+Import:
 ```v
 import ifndev.flogs
 ```
 
 ### From github:
-`git clone https://github.com/ifndev/v-fancy-logs/ flogs`
+
+Install:
+```
+git clone https://github.com/ifndev/v-fancy-logs/ flogs
+```
+
+Import:
 ```v
 import flogs
 ```
