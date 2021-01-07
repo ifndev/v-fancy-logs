@@ -80,12 +80,14 @@ const (
 )
 
 fn main() {
-
-	l.log("ignore me, unless you don't want to.", .verbose)
-	l.log("you might want to know this", .info)
-	l.log("that's probably important" , .warning)
-	l.log("i don't feel so good", .error)
-	l.log("really bad" , .critical)
+	l.verbose("ignore me, unless you don't want to.")
+	l.info("you might want to know this")
+	l.warning("that's probably important")
+	l.error("i don't feel so good")
+	l.critical("really bad")
+    
+    // You can also use the 'log' method:
+    l.log('custom error', .error) // == l.error('custom error')
 }
 ```
 
@@ -102,7 +104,6 @@ fn main() {
 	l := flogs.Logger{
 		min_logging_level: get_level_from_args() 
 	}
-
 	l.log("ignore me, unless you don't want to.", .verbose)
 	l.log('you might want to know this', .info)
 	l.log("that's probably important", .warning)
@@ -111,20 +112,18 @@ fn main() {
 }
 
 fn get_level_from_args() flogs.Level {
-
 	if os.args.len == 3 && os.args[1] == "--log-level" {
 		match os.args[2] {
-			"verbose" {return .verbose}
-			"info" {return .info}
-			"warning" {return .warning}
-			"error" {return .error}
-			"critical" {return .critical}
-
-			else {return .verbose} //used by default if input is invalid
+			"verbose" { return .verbose }
+			"info" { return .info }
+			"warning" { return .warning }
+			"error" { return .error }
+			"critical" { return .critical }
+			else { return .verbose } // used by default if input is invalid
 		}
 	}
 	else {
-		return .verbose //used by default if no input
+		return .verbose // used by default if no input
 	}
 }
 ```
