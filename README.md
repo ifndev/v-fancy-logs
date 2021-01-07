@@ -75,7 +75,8 @@ import ifndev.flogs
 const (
     l = flogs.Logger {
         min_logging_level: .verbose // Minimum level to be printed to console
-        // For example, if you choose .warning, only warnings, errors and critical errors will be displayed
+        // For example, if you choose .warning, only warnings, errors and
+        // critical errors will be displayed
     }
 )
 
